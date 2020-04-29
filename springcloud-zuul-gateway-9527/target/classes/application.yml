@@ -1,0 +1,28 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/   #eureka集群
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true    #是否显示ip
+
+info:
+  app.name: lsy-springcloud
+  company.name: www.lsy.com
+  build.artifactId: ${ project.artifactId }
+  build.version: ${ project.version }
+
+zuul:
+  routes:
+    mydept.serviceId: springcloud-dept
+    mydept.path: /mydept/**            #微服务访问接口名称替换
+  ignored-services: springcloud-dept
+  #ignored-services: "*"   忽略所有原来微服务的访问接口名
+  prefix: /lsy        #访问所有微服务需加网址前缀

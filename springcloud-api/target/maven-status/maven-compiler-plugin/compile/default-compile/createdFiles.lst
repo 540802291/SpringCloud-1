@@ -1,0 +1,4 @@
+com\lsy\pojo\Dept.class
+com\lsy\service\DeptClientService.class
+com\lsy\service\DeptClientServiceFallBack.class
+com\lsy\service\DeptClientServiceFallBack$1.class
